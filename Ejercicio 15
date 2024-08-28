@@ -1,0 +1,31 @@
+const int trigPin = 9;  
+const int echoPin = 10;
+
+void setup() {
+  Serial.begin(9600);   
+  pinMode(trigPin, OUTPUT); 
+  pinMode(echoPin, INPUT);  
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  long duracion = pulseIn(echoPin, HIGH);
+
+  float distancia = (duracion * 0.343) / 2;
+
+  float tiempoSegundos = duracion / 1000000.0;  
+
+  Serial.print("Distancia: ");
+  Serial.print(distancia);
+  Serial.print(" mm, Tiempo: ");
+  Serial.print(tiempoSegundos);
+  Serial.println(" s");
+
+  delay(500); 
+}
