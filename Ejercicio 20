@@ -1,0 +1,22 @@
+#define MQ2_PIN A0
+#define BUZZER_PIN 8
+#define THRESHOLD 300
+
+void setup() {
+  pinMode(BUZZER_PIN, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorValue = analogRead(MQ2_PIN);
+  
+  if (sensorValue > THRESHOLD) {
+    digitalWrite(BUZZER_PIN, HIGH);
+  } else {
+    digitalWrite(BUZZER_PIN, LOW);
+  }
+  
+  Serial.print("sensor: ");
+  Serial.println(sensorValue);
+  delay(1000);
+}
