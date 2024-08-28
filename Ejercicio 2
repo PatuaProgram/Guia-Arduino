@@ -1,0 +1,14 @@
+int led1 = 7; 
+led2 = 8;
+led3 = 9;
+
+void setup() {
+  pinMode(led1, OUTPUT);
+  pinMode(led2, OUTPUT);
+  pinMode(led3, OUTPUT);
+  digitalWrite(led1, HIGH);
+  digitalWrite(led2, HIGH);
+  digitalWrite(led3, HIGH);
+}
+
+void loop() {}
