@@ -1,0 +1,40 @@
+int ledRojo = 13;
+int ledAma = 12;
+int ledAzul = 11;
+String led;
+String msg1 = "elige un color primario: ";
+int dt = 500;
+
+void setup(){
+  Serial.begin(9600);
+  pinMode(ledRojo, OUTPUT);
+  pinMode(ledAma, OUTPUT);
+  pinMode(ledAzul, OUTPUT);
+}
+
+void loop(){
+  Serial.println(msg1);
+  while(Serial.available() == 0){
+   
+  }
+  led = Serial.readStringUntil('\n'); 
+
+  if (led == "azul") {
+    digitalWrite(ledAzul, HIGH);
+    delay(dt);
+    digitalWrite(ledAzul, LOW);
+    delay(dt);
+  }
+  else if (led == "amarillo") {
+    digitalWrite(ledAma, HIGH);
+    delay(dt);
+    digitalWrite(ledAma, LOW);
+    delay(dt);
+  }
+  else if (led == "rojo") {
+    digitalWrite(ledRojo, HIGH);
+    delay(dt);
+    digitalWrite(ledRojo, LOW);
+    delay(dt);
+  }
+}
